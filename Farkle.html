@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farkle</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="farkle.js" type="text/javascript"></script>
+<link rel="stylesheet" href="Farkle.css" type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+<body>
+<header>
+    <img src="images/FarkleLogo.png" alt="Farkle Logo">
+    <nav>
+        <ul>
+            <li><a href="https://www.elversonpuzzle.com/Farkle-instructions11.pdf" target="_blank">Rules</a></li>
+            <li><a href="https://visme.co/blog/website-color-schemes/#:~:text=Minimal%20Yet%20Warm" target="_blank">Scheme</a></li>
+            <li id="hw"><a href="#" onclick="getRandomHW()">HW</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="first">
+        <h3>Player Info <i class="fas fa-users"></i></h3>
+        <div class="grid" id="player-grid" >
+            <div class="player" id="player1">
+                <p id="name1">Name: </p>
+                <p id="points1">Points: </p>
+                <p id="farkles1">Farkles in a row: </p>
+                <p id="wins1">Wins: </p>
+            </div>
+            <div class="player" id="player2">
+                <p id="name2">Name: </p>
+                <p id="points2">Points: </p>
+                <p id="farkles2">Farkles in a row: </p>
+                <p id="wins2">Wins: </p>
+            </div>
+            <div class="player" id="player3">
+                <p id="name3">Name: </p>
+                <p id="points3">Points: </p>
+                <p id="farkles3">Farkles in a row: </p>
+                <p id="wins3">Wins: </p>
+            </div>
+            <div class="player" id="player4">
+                <p id="name4">Name: </p>
+                <p id="points4">Points: </p>
+                <p id="farkles4"> Farkles in a row: </p>
+                <p id="wins4">Wins: </p>
+            </div>
+            <div>
+                <p id="games-played">&nbsp;</p>
+                <p id="points-to-win">&nbsp;</p>
+            </div>
+        </div>
+    </section>
+    <section id="second">
+        <h3>Game Board <i class="fas fa-dice"></i></h3>
+        <div class="grid" id="roll-grid">
+            <div id="dice-cup"><img src="images/DiceCup.png" height="50" width="50"></div>
+            <div id="die1"><img src="images/Die1.PNG" width="50" height="50" alt="die1"></div>
+            <div id="die2"><img src="images/Die2.PNG" width="50" height="50" alt="die2"></div>
+            <div id="die3"><img src="images/Die3.PNG" width="50" height="50" alt="die3"></div>
+            <div id="die4"><img src="images/Die4.PNG" width="50" height="50" alt="die4"></div>
+            <div id="die5"><img src="images/Die5.PNG" width="50" height="50" alt="die5"></div>
+            <div id="die6"><img src="images/Die6.PNG" width="50" height="50" alt="die6"></div>
+            <div id="rolls"></div>
+            <div id="round-stats">
+                <p id="roll-points">&nbsp;</p>
+                <p id="round-points">&nbsp</p>
+            </div>
+            <div id="controls">
+                <button id="stay" onclick="Stay()" disabled>Stay</button>
+                <button id="playGame" onclick="StartGame()">Start Game</button>
+                <p id="pTurn">&nbsp</p>
+            </div>
+        </div>
+    </section>
+
+<section id="third">
+    <h3>Farkle Point Legend <i class="fas fa-map-signs"></i></h3>
+    <div class="grid" id="farkle-legend">
+        <p class="fives">Fives</p>
+        <div class="fives">
+            <img src="images/Die5.PNG" width="30px" height="30px" alt="die5" alt="die5">
+        </div>
+        <p class="fives">50 pts</p>
+
+        <p class="ones">Ones</p>
+        <div class="ones">
+            <img src="images/Die1.PNG" width="30px" height="30px" alt="die1">
+        </div>
+        <p class="ones">100 pts</p>
+
+        <p class="three-ones">3 Ones</p>
+        <div class="three-ones">
+            <img src="images/Die1.PNG" width="30px" height="30px" alt="die1">
+            <img src="images/Die1.PNG" width="30px" height="30px" alt="die1">
+            <img src="images/Die1.PNG" width="30px" height="30px" alt="die1">
+        </div>
+        <p class="three-ones">1,000 pts</p>
+
+        <p class="three-twos">3 Twos</p>
+        <div class="three-twos">
+            <img src="images/Die2.PNG" width="30px" height="30px" alt="die2">
+            <img src="images/Die2.PNG" width="30px" height="30px" alt="die2">
+            <img src="images/Die2.PNG" width="30px" height="30px" alt="die2">
+        </div>
+        <p class="three-twos">200 pts</p>
+
+        <p class="three-threes">3 Threes</p>
+        <div class="three-threes">
+            <img src="images/Die3.PNG" width="30px" height="30px" alt="die3">
+            <img src="images/Die3.PNG" width="30px" height="30px" alt="die3">
+            <img src="images/Die3.PNG" width="30px" height="30px" alt="die3">
+        </div>
+        <p class="three-threes">300 pts</p>
+
+        <p class="three-fours">3 Fours</p>
+        <div class="three-fours">
+            <img src="images/Die4.PNG" width="30px" height="30px" alt="die4">
+            <img src="images/Die4.PNG" width="30px" height="30px" alt="die4">
+            <img src="images/Die4.PNG" width="30px" height="30px" alt="die4">
+        </div>
+        <p class="three-fours">400 pts</p>
+
+        <p class="three-fives">3 Fives</p>
+        <div class="three-fives">
+            <img src="images/Die5.PNG" width="30px" height="30px" alt="die5">
+            <img src="images/Die5.PNG" width="30px" height="30px" alt="die5">
+            <img src="images/Die5.PNG" width="30px" height="30px" alt="die5">
+        </div>
+        <p class="three-fives">500 pts</p>
+
+        <p class="three-sixes">3 Sixes</p>
+        <div class="three-sixes">
+            <img src="images/Die6.PNG" width="30px" height="30px" alt="die6">
+            <img src="images/Die6.PNG" width="30px" height="30px" alt="die6">
+            <img src="images/Die6.PNG" width="30px" height="30px" alt="die6">
+        </div>
+        <p class="three-sixes">600 pts</p>
+        
+        <p class="straight"> Straight</p>
+        <div class="straight">
+            <img src="images/Die1.PNG" width="30px" height="30px" alt="die1">
+            <img src="images/Die2.PNG" width="30px" height="30px" alt="die2">
+            <img src="images/Die3.PNG" width="30px" height="30px" alt="die3">
+            <img src="images/Die4.PNG" width="30px" height="30px" alt="die4">
+            <img src="images/Die5.PNG" width="30px" height="30px" alt="die5">
+            <img src="images/Die6.PNG" width="30px" height="30px" alt="die6">
+        </div>
+        <p class="straight">1,500 pts</p>
+
+        <p class="three-pairs">3 Pairs</p>
+        <div class="three-pairs">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieY.png" width="30px" height="30px" alt="dieY">
+            <img src="images/DieY.png" width="30px" height="30px" alt="dieY">
+            <img src="images/DieZ.png" width="30px" height="30px" alt="dieZ">
+            <img src="images/DieZ.png" width="30px" height="30px" alt="dieZ">
+        </div>
+        <p class="three-pairs">1,500 pts</p>
+        <p class="two-triplets">2 Triplets</p>
+        <div class="two-triplets">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieY.png" width="30px" height="30px" alt="dieY">
+            <img src="images/DieY.png" width="30px" height="30px" alt="dieY">
+            <img src="images/DieY.png" width="30px" height="30px" alt="dieY">
+        </div>
+        <p class="two-triplets">2,500 pts</p>
+
+        <p class="four-any">4 of a Kind</p>
+        <div class="four-any">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+        </div>
+        <p class="four-any">1,000 pts</p>
+
+        <p class="five-any">5 of a Kind</p>
+        <div class="five-any">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+        </div>
+        <p class="five-any">2,000 pts</p>
+
+        <p class="six-any">6 of a Kind</p>
+        <div class="six-any">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+            <img src="images/DieX.png" width="30px" height="30px" alt="dieX">
+        </div>
+        <p class="six-any">3,000 pts</p>
+
+        <p class="three-farkles">3 Farkles</p>
+        <div class="three-farkles">
+            <span>3 Farkles in a row over 3 rounds</span>
+        </div>
+        <p class="three-farkles">-1,000 pts</p>
+    </div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Color Scheme */
+
+/*
+Background: #EAE7DC
+Secondary BG: #D8C3A5
+Grey: #8E8D8A
+Light Red: #E98074
+Red: #E85A4F
+ */
+
+
+/* Header */
+
+header {
+    background-color: #E98074;
+    border: black 2px solid;
+    border-radius: 5px;
+    text-align: center;
+
+    width: 25%;
+    min-width: 350px;
+    max-width: 500px;
+    margin: 2px auto;
+
+    box-shadow: rgba(25, 25, 25, 0.2) 5px 4px 12px, rgba(25, 25, 25, 0.2) -5px 4px 12px;
+}
+
+header nav {
+    background-color: #D8C3A5;
+    border: black 2px solid;
+    border-bottom: 0px;
+    border-radius: 4px;
+    margin: 0px -1.8px -0.2px -1.8px;
+}
+
+header nav a {
+    display: block;
+    color: black;
+    font-weight: bold;
+    border: black 2px solid;
+    border-top: 0px;
+    border-bottom: 0px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    background-color: darkgrey;
+}
+
+header nav a:active {
+    background-color: grey;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header li {
+    display: inline-block;
+    background-color: #8E8D8A;
+    width: 20%;
+    margin: 0 1px;
+}
+.grid {
+    border: black 1px solid;
+    border-radius: 4px;
+    background-color: #D8C3A5;
+
+    box-shadow: rgba(25, 25, 25, 0.2) 5px 4px 12px, rgba(25, 25, 25, 0.2) -5px 4px 12px;
+}
+
+
+/* First */
+
+#player-grid{
+    display: grid;
+    border: 1px solid black;
+    grid-template-rows: 23% 23% 23% 23% 8%;
+    text-align: left;
+}
+
+#player-grid div{
+    background-color: #D8C3A5;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#player-grid .player {
+    background-color: #8E8D8A;
+}
+
+#player-grid p {
+    padding: 3px;
+}
+
+#player-grid .player p {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#player-grid #game-stats p {
+    padding-top: 8px;
+}
+
+#player-grid #games-played {
+    float: left;
+}
+
+#player-grid #points-to-win {
+    float: right;
+}
+
+/* Second */
+
+#roll-grid{
+    display: grid;
+    grid-template-columns: 16% 14% 14% 14% 14% 14% 14%;
+    border: black 2px solid;
+}
+
+#roll-grid div{
+    padding: 10px;
+}
+
+#roll-grid #dice-cup {
+    background-color: #8E8D8A;
+    border-right: black 2px solid;
+}
+
+#roll-grid #dice-cup img{
+    /*transform: rotate(120deg);*/
+}
+
+#roll-grid .blank50x50 {
+    padding: 25px;
+}
+
+#roll-grid #rolls {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    background-color: #E98074;
+    text-align: left;
+
+    border-top: black 2px solid;
+    min-height: 300px;
+    max-height: 500px;
+}
+
+#roll-grid .hold {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#roll-grid .hold input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#roll-grid input[type="number"]  {
+    margin-left: 10px;
+}
+
+#roll-grid #rolls p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#roll-grid #rolls p span {
+    font-size: 28px;
+    text-decoration: underline;
+}
+
+#roll-grid #round-stats {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    background-color: #E98074;
+    text-align: left;
+    font-weight: bold;
+}
+
+#roll-grid #controls {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    border-top: black 2px solid;
+    padding: 0px;
+}
+
+#roll-grid #pTurn {
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+#roll-grid button {
+    background-color: #8E8D8A;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0px;
+}
+
+#roll-grid button:hover {
+    background-color: darkgrey;
+}
+
+#roll-grid button:focus {
+    background-color: darkgrey;
+    outline: none;
+}
+
+#roll-grid button:active {
+    background-color: grey;
+}
+
+#roll-grid #playGame {
+    float: right;
+    border-left: black 2px solid;
+    padding: 5px;
+}
+
+#roll-grid #stay {
+    float: left;
+    border-right: black 2px solid;
+    padding: 5px 20px 5px;
+}
+
+#roll-grid button[disabled]:hover {
+    background-color: #8E8D8A;
+}
+
+/* Third */
+#farkle-legend {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#farkle-legend div {
+    border: black 1px solid;
+    padding: 4px 0px 0px 0px;
+}
+
+#farkle-legend p {
+    border: black 1px solid;
+    padding-top: 10px;
+}
+
+.three-farkles span {
+    display: block;
+    height: 28px;
+    padding-top: 6px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EAE7DC;
+    min-width: 550px;
+}
+
+main {
+    text-align: center;
+    padding-bottom: 50px;
+    margin-top: 15px;
+}
+
+section {
+    display: inline-block;
+    padding: 10px;
+}
+
+#first {
+    width: 20%;
+    min-width: 350px;
+    max-width: 550px;
+    margin-top: 50px;
+}
+
+#second {
+    width: 30%;
+    min-width: 525px;
+    max-width: 600px;
+
+    position: relative;
+    top: 39px;
+}
+
+#third {
+    width: 20%;
+    min-width: 450px;
+    max-width: 600px;
+    margin-top: 50px;
+
+    position: relative;
+    top: 3px;
+}
+
+
+/* Misc. Styles */
+
+h3 {
+    background-color: #E85A4F;
+    border: black 2px solid;
+    border-bottom: 0px;
+}
